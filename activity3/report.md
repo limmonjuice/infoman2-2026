@@ -1,0 +1,1 @@
+![](images/LIM_act3.png)
