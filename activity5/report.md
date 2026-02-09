@@ -1,8 +1,8 @@
 # 1
-Initial Data Insertion Time (100,000 rows): 4m 9s 62ms  
-Query Execution Time (Non-Indexed): 2.459 ms  
-Query Execution Time (Indexed): 0.364 ms  
-Single Row Insertion Time (With Index): 37.572 ms  
+Initial Data Insertion Time (100,000 rows): 6m 10s 70ms  
+Query Execution Time (Non-Indexed): 24.140 ms  
+Query Execution Time (Indexed): 1.538 ms  
+Single Row Insertion Time (With Index): 33.066 ms  
 Answer the following questions:  
 
 # 2
