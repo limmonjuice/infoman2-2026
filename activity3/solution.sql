@@ -1,3 +1,5 @@
+--trigger function
+
 create or replace function log_product_changes()
 returns trigger as $$
 begin
@@ -24,6 +26,12 @@ begin
     return null;
 end;
 $$ language plpgsql;
+
+--trigger definition
+create trigger products_audit_trigger
+after insert or update or delete on products
+for each row
+execute function log_product_changes();
 
 
 		
