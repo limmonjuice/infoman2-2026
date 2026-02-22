@@ -61,7 +61,7 @@ order by date desc;
         To optimize both the WHERE filtering and the ORDER BY operation with a single change, I created an index on (author_id, date desc). This index allowed postgre to quickly locate all posts belonging to the specific author_id and retrieve them already sorted from newest to oldest.
 *   Implement your fix and record the new plan. How much faster is the query now?
 
-        After implementing the index, the execution time dropped from 3.394 ms to 0.443 ms. The optimized query is about 7.7 times faster than the original version, saving about 2.951 ms per execution.
+        After implementing the index, the execution time dropped from 3.394 ms to 0.443 ms. The optimized query is much faster than the original version, saving about 2.951 ms.
 
 
 ### Scenario 2: The Unsearchable Blog
@@ -153,7 +153,7 @@ Index Only Scan using idx_posts_title on posts  (cost=0.29..515.28 rows=1 width=
 explain analyze
 select id,title,date
 from posts
-where date > '2014-12-31' and date <= '2015-01-31';
+where date >= '2015-01-01' and date <= '2015-01-31';
                                                          QUERY PLAN
 ----------------------------------------------------------------------------------------------------------------------------
  Bitmap Heap Scan on posts  (cost=4.45..60.10 rows=16 width=52) (actual time=0.342..0.430 rows=22.00 loops=1)
