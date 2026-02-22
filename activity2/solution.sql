@@ -77,5 +77,3 @@ BEGIN
         END LOOP;
 END;
 $$ LANGUAGE plpgsql;
-
-create or replace
