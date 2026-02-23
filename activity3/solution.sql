@@ -35,6 +35,8 @@ execute function log_product_changes();
 
 
 --bonus challenge
+
+--trigger function
 create or replace function set_last_modified()
 returns trigger as $$
 begin
@@ -49,5 +51,18 @@ create trigger products_last_modified_trigger
 before update on products
 for each row
 execute function set_last_modified();
+
+--why is before is the correct choice?
+
+--before is the right choice because it modifies NEW.last_modified 
+--before the row is saved. In a BEFORE trigger, PostgreSQL 
+--applies any changes made to NEW, so the updated timestamp is stored with the row.
+
+--test
+UPDATE products
+SET price = price + 10
+WHERE product_id = 1;
+
+
 
 		
