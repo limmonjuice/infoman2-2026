@@ -34,4 +34,20 @@ for each row
 execute function log_product_changes();
 
 
+--bonus challenge
+create or replace function set_last_modified()
+returns trigger as $$
+begin
+    NEW.last_modified = NOW();
+    return NEW;
+end;
+$$ language plpgsql;
+
+
+--trigger definition
+create trigger products_last_modified_trigger
+before update on products
+for each row
+execute function set_last_modified();
+
 		
