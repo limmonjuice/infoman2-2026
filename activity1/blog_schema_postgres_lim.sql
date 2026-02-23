@@ -1,8 +1,7 @@
--- Original MySQL Schema
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE posts (
@@ -10,7 +9,7 @@ CREATE TABLE posts (
     user_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     body TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -19,7 +18,7 @@ CREATE TABLE comments (
     post_id INT NOT NULL,
     user_id INT NOT NULL,
     comment TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (post_id) REFERENCES posts(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
