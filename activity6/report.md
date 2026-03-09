@@ -1,6 +1,6 @@
 
 
-## Query Analysis and Optimization
+## Query Analysis and 
 
 
 ### Scenario 1: The Slow Author Profile Page
