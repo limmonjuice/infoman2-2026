@@ -46,7 +46,7 @@ _id: 2,
 title: "How to Not Become a 10x Engineer",
 content: "Read me FR",
 author_username: "limmon_juice",
-category: "Software ENgineering",
+category: "Software Engineering",
 views: 999
 })
 ```
